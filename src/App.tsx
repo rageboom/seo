@@ -17,8 +17,8 @@ function App() {
         </div>
         <Routes>
           <Route path='/basic-scene' element={<ScenePanel name='Basic Scene' caseCode={1}/>} />
-          <Route path='/standard-materials' element={<ScenePanel name='Standard Materials' caseCode={2}/>} />
-          <Route path='/pbr' element={<ScenePanel name='PBR' caseCode={3}/>} />
+          {/* <Route path='/standard-materials' element={<ScenePanel name='Standard Materials' caseCode={2}/>} /> */}
+          {/* <Route path='/pbr' element={<ScenePanel name='PBR' caseCode={3}/>} /> */}
           {/* <Route path='/custom-models' element={<ScenePanel name='Custom Models' caseCode={4}/>} />
           <Route path='/lights-shadows' element={<ScenePanel name='Lights Shadows' caseCode={5}/>} />
           <Route path='/camera-mechanics' element={<ScenePanel name='Camera Mechanics' caseCode={8}/>} /> */}
