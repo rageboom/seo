@@ -45,7 +45,10 @@
     "react-snap": "^1.10.0"
   },
   "reactSnap": {
+    "waitUntil": "networkidle2",
+    "headless": true,
     "puppeteerArgs": [
+      "--use-gl=egl",
       "--no-sandbox",
       "--disable-setuid-sandbox"
     ]
