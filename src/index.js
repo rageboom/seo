@@ -1,15 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { hydrate, render } from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { sendToVercelAnalytics } from './vitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const rootEl = document.getElementById('root');
+if (rootEl.hasChildNodes()) {
+  hydrate(<App />);
+} else {
+  render(<App />);
+}
 
 reportWebVitals(sendToVercelAnalytics);
