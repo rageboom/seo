@@ -7,9 +7,9 @@ import { sendToVercelAnalytics } from './vitals';
 
 const rootEl = document.getElementById('root');
 if (rootEl.hasChildNodes()) {
-  hydrate(<App />);
+  hydrate(<App />, rootEl);
 } else {
-  render(<App />);
+  render(<App />, rootEl);
 }
 
 reportWebVitals(sendToVercelAnalytics);
