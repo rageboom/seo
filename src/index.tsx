@@ -1,15 +1,13 @@
-import React from 'react';
 import { hydrate, render } from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { sendToVercelAnalytics } from './vitals';
+import './index.css';
 
 const rootEl = document.getElementById('root');
-if (rootEl.hasChildNodes()) {
+if (rootEl?.hasChildNodes()) {
   hydrate(<App />, rootEl);
 } else {
   render(<App />, rootEl);
 }
 
-reportWebVitals(sendToVercelAnalytics);
+reportWebVitals();
