@@ -10,7 +10,7 @@ function App() {
           <ExampleCases />
         </div>
         <Routes>
-          <Route path='/' element={<h1>이 페이지는 babylonjs의 기능을 학습한 기록 입니다.</h1>} />
+          <Route path='/' element={<ScenePanel name='이 페이지는 babylonjs의 기능을 학습한 기록 입니다.' caseCode={0}/>} />
           <Route path='/basic-scene' element={<ScenePanel name='Basic Scene' caseCode={1}/>} />
           <Route path='/standard-materials' element={<ScenePanel name='Standard Materials' caseCode={2}/>} />
           <Route path='/pbr' element={<ScenePanel name='PBR' caseCode={3}/>} />

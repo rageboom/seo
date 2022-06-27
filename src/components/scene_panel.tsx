@@ -3,11 +3,12 @@ import {CaseFactory} from '../factory';
 import MetaTags from './meta_tags';
 
 interface Panel {
-  name: string;
-  caseCode: number;
+  name: string,
+  caseCode: number,
+  children?: HTMLElement,
 }
 
-function ScenePanel ({name, caseCode}: Panel) {
+function ScenePanel ({name, caseCode, children}: Panel) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [metaTagProps, setMetaTagProps] = useState({});
 
@@ -23,8 +24,8 @@ function ScenePanel ({name, caseCode}: Panel) {
       
       const scene = CaseFactory(canvas, caseCode);
 
-      if (scene?.mataProps) {
-        setMetaTagProps(scene.mataProps);
+      if (scene?.metaProps) {
+        setMetaTagProps(scene.metaProps);
       } else {
         setMetaTagProps({});
       }
@@ -40,6 +41,7 @@ function ScenePanel ({name, caseCode}: Panel) {
       <MetaTags {...metaTagProps}/>
       <h1>{name}</h1>
       <div id={`canvas-container-${caseCode}`} />
+      {children}
     </>
     )
 }
