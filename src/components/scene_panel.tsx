@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {CaseFactory} from '../factory';
+import MetaTags from './meta_tags';
 
 interface Panel {
   name: string;
@@ -8,6 +9,7 @@ interface Panel {
 
 function ScenePanel ({name, caseCode}: Panel) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [metaTagProps, setMetaTagProps] = useState({});
 
   useEffect(() => {
     const canvas: HTMLCanvasElement | null = canvasRef.current;
@@ -20,6 +22,12 @@ function ScenePanel ({name, caseCode}: Panel) {
       root?.appendChild(canvas);
       
       const scene = CaseFactory(canvas, caseCode);
+
+      if (scene?.mataProps) {
+        setMetaTagProps(scene.mataProps);
+      } else {
+        setMetaTagProps({});
+      }
     }
     return (() => {
       canvasRef.current?.remove();
@@ -27,7 +35,13 @@ function ScenePanel ({name, caseCode}: Panel) {
     })
   }, [caseCode]);
 
-  return(<><div>{name}</div><div id={`canvas-container-${caseCode}`}></div></>);
+  return(
+    <>
+      <MetaTags {...metaTagProps}/>
+      <h1>{name}</h1>
+      <div id={`canvas-container-${caseCode}`} />
+    </>
+    )
 }
 
 export default ScenePanel;
