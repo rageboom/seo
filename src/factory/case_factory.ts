@@ -36,7 +36,7 @@ export default function CaseFactory (canvas: HTMLCanvasElement, caseCode: number
           description: '이 페이지는 babylonejs의 PBR 연습입니다.',
           keywords: 'babylonejs'
         },
-        scene: ''//new PBR(canvas),
+        scene: new PBR(canvas),
       }
     case 4:
       return {
@@ -63,7 +63,7 @@ export default function CaseFactory (canvas: HTMLCanvasElement, caseCode: number
           description: '이 페이지는 babylonejs의 Camera Mechanics 연습입니다.',
           keywords: 'babylonejs'
         },
-      scene: ''//new CameraMechanics(canvas),
+      scene: new CameraMechanics(canvas),
     }
     default:
       return null;
